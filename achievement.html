@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #add8e6;
+            padding-top: 270px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- FIXED BANNER TOP --- */
+        .image-banner-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 200px;
+            background: #add8e6;
+            z-index: 9998;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-banner-container img {
+            height: 100%;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* --- FIXED NAVIGATION BAR --- */
+        header {
+            position: fixed;
+            top: 200px;
+            width: 100%;
+            background: #fff;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            z-index: 9999;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #333;
+            font-size: 15px;
+        }
+        nav a:hover, nav a.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Achievement dropdown */
+        .ach-drop {
+            position: relative;
+            display: inline-block;
+        }
+        .ach-drop .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #fff;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .ach-drop .dropdown-menu a {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        .ach-drop .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+            color: #007bff;
+        }
+        .ach-drop.show .dropdown-menu {
+            display: block;
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .card-header {
+            background-color: #87ceeb;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .btn {
+            padding: 8px 15px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* CERTIFICATE MODAL */
+        #certificateModal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        #certificateModal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+        }
+        #certificateModal.show img {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* BACK TO TOP */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #007bff;
+            color: white;
+            padding: 12px 15px;
+            font-size: 18px;
+            border-radius: 50%;
+            border: none;
+            display: none;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            margin-top: auto;
+            padding: 20px 15px;
+        }
+
+        .footer-info {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        .last-updated {
+            font-style: italic;
+            color: #777;
+        }
+
+        @media(max-width: 768px) {
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED BANNER -->
+    <div class="image-banner-container">
+        <img src="resume header.jpg" alt="Zaiyani Zarli Banner">
+    </div>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="logo">ZAIYANI ZARLI</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+
+            <div class="ach-drop">
+                <a href="achievement.html" class="active">Achievement</a>
+                <div class="dropdown-menu">
+                    <a href="librarycertificate.html">Library Programme Certificate</a>
+                </div>
+            </div>
+
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>🏆 Achievements & Awards</h2>
+        <div class="row">
+            <div class="card">
+                <div class="card-header">2023</div>
+                <div class="card-body">
+                    <h5>Sijil Mencipta Logo KMK</h5>
+                    <p>Peringkat Matrikulasi</p>
+                    <button class="btn view-cert" data-src="img/sijil1.jpg">View Certificate</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">July 2021</div>
+                <div class="card-body">
+                    <h5>Online Chess Tournament</h5>
+                    <p>Minister of Education Malaysia</p>
+                    <button class="btn view-cert" data-src="img/sijil2.jpg">View Certificate</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">August 2021</div>
+                <div class="card-body">
+                    <h5>Chess Championship</h5>
+                    <p>X Chess Academy</p>
+                    <button class="btn view-cert" data-src="img/sijil3.jpg">View Certificate</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">2021</div>
+                <div class="card-body">
+                    <h5>Pertandingan Pengkarya Muda</h5>
+                    <p>Jabatan Pendidikan Negeri Kedah</p>
+                    <button class="btn view-cert" data-src="img/sijil4.jpg">View Certificate</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">April 2021</div>
+                <div class="card-body">
+                    <h5>All Star Youth</h5>
+                    <p>X Chess Academy</p>
+                    <button class="btn view-cert" data-src="img/sijil5.jpg">View Certificate</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">2023</div>
+                <div class="card-body">
+                    <h5>Lichess Application Online</h5>
+                    <p>Ministry of Education Malaysia</p>
+                    <button class="btn view-cert" data-src="img/sijil6.jpg">View Certificate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE MODAL -->
+    <div id="certificateModal">
+        <img id="certificateImage" src="">
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop">↑</button>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-info">
+            <p>🌐 Recommended: Latest Chrome, Firefox, or Edge | 🖥️ Resolution: 1280x720 or higher</p>
+            <p class="last-updated">📅 Last Updated: 06 Dec 2025</p>
+        </div>
+        <p>&copy; 2025 Zaiyani Zarli. All rights reserved.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Dropdown hover
+        const achDrop = document.querySelector(".ach-drop");
+        achDrop.addEventListener("mouseenter", () => achDrop.classList.add("show"));
+        achDrop.addEventListener("mouseleave", () => achDrop.classList.remove("show"));
+
+        // Back to Top button
+        const backBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            backBtn.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+        backBtn.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+        // Certificate modal
+        const certModal = document.getElementById("certificateModal");
+        const certImg = document.getElementById("certificateImage");
+        document.querySelectorAll(".view-cert").forEach(btn => {
+            btn.addEventListener("click", () => {
+                certImg.src = btn.dataset.src;
+                certModal.style.display = "flex";
+                setTimeout(()=>certModal.classList.add("show"), 20);
+            });
+        });
+        certModal.addEventListener("click", () => {
+            certModal.classList.remove("show");
+            setTimeout(()=>certModal.style.display="none", 250);
+        });
+    </script>
+
+</body>
+</html>

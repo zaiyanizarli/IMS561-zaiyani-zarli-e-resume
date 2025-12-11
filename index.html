@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Resume - Zaiyani Zarli</title>
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #add8e6;
+        /* space for fixed banner and nav */
+        padding-top: 270px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+
+            /* IMPORTANT: space for banner (200px) + nav bar (70px) */
+            padding-top: 270px;
+        }
+
+        /* --- FIXED BANNER TOP --- */
+        .image-banner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;      /* full viewport width */
+    max-width: none;   /* remove max width */
+    height: 200px;
+    background: #add8e6;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      }
+
+
+        .image-banner-container img {
+    height: 100%;          /* keeps banner height fixed */
+    width: auto;           /* preserves aspect ratio */
+    max-width: none;       /* remove previous max-width so it can stretch */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+      }
+
+        /* --- FIXED NAVIGATION BAR BELOW BANNER --- */
+        header {
+            position: fixed;
+            top: 200px; /* EXACTLY BANNER HEIGHT */
+            width: 100%;
+            background: #fff;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            z-index: 9999;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #333;
+            font-size: 15px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* CARDS */
+        .card {
+            border-radius: 10px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* CLOCK */
+        .digital_clock {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 50px; /* space from footer */
+    }
+
+.digital_clock .colon {
+    font-size: 3.5em;      
+    font-weight: bold;
+    margin: 0 3px;
+    line-height: 1;        /* same line height as numbers */
+    vertical-align: middle; /* aligns colon with numbers */
+}
+
+    /* TIME (hour:min:sec AM/PM) */
+    .digital_clock .hour,
+.digital_clock .minute,
+.digital_clock .second,
+.digital_clock .period {
+    font-size: 3em;       
+    font-weight: bold;    
+    margin: 0 5px;
+    line-height: 1;       /* ensures numbers are tightly aligned */
+    vertical-align: middle; /* aligns numbers vertically */
+}
+
+    /* DATE (day_name, month, day_no) */
+    .digital_clock .day_name,
+    .digital_clock .month,
+    .digital_clock .day_no {
+        font-size: 1.2em;          /* smaller date font */
+        font-family: 'Times New Roman', Times, serif; /* Times New Roman for date */
+        display: inline-block;
+        margin: 0 3px;
+    }
+
+        /* BACK TO TOP */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #007bff;
+            color: white;
+            padding: 12px 15px;
+            font-size: 18px;
+            border-radius: 50%;
+            border: none;
+            display: none;
+            cursor: pointer;
+            z-index: 9999;
+        }
+       footer {
+            background-color: #ffffff;
+        border-top: 1px solid #ccc;
+        text-align: center;
+        font-size: 0.9em;
+        color: #555;
+        margin-top: auto; /* pushes footer to bottom */
+        padding: 20px 15px;
+
+        }
+        .footer-info {
+            margin-bottom: 10px; 
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        .footer-info p {
+            margin: 5px 0;
+        }
+        .last-updated {
+            font-style: italic;
+            color: #777;
+        } 
+        
+        @media (max-width: 500px) {
+            .footer-info p {
+                display: block; 
+                line-height: 1.4;
+            }
+           
+       }
+   
+    </style>
+</head>
+
+<body>
+
+    <!-- FIXED BANNER -->
+    <div class="image-banner-container">
+        <img src="resume header.jpg" alt="Zaiyani Zarli E-Resume Header">
+    </div>
+
+    <!-- FIXED NAV BAR BELOW BANNER -->
+    <header>
+        <div class="logo">ZAIYANI ZARLI</div>
+        <nav>
+            <a href="home.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="achievement.html">Achievement</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+    </header>
+
+    <!-- PAGE CONTENT BELOW -->
+    <div class="container" style="padding: 20px;">
+
+        <div class="card">
+            <h3>Welcome to my e-resume!</h3>
+            <p>I’m Zaiyani Zarli, a final year student at UiTM Merbok.</p>
+        </div>
+
+        <div class="card">
+            <h3>About Me</h3>
+            <p>Bachelor of Information Science (Hons) Library Management</p>
+        </div>
+
+        <div class="card">
+            <h3>Education</h3>
+            <p>My education journey</p>
+        </div>
+
+        <div class="card">
+            <h3>Skills</h3>
+            <p>List of my skills</p>
+        </div>
+
+        <div class="card">
+            <h3>Contacts</h3>
+            <p>Contact me for more details</p>
+        </div>
+
+    </div>
+
+    <!-- CLOCK -->
+   <div class="digital_clock">
+    <span class="hour">00</span><span class="colon">:</span>
+    <span class="minute">00</span><span class="colon">:</span>
+    <span class="second">00</span>
+    <span class="period">AM</span>
+    <br>
+    <span class="day_name">Monday</span>,
+    <span class="month">January</span>
+    <span class="day_no">01</span>
+</div>
+
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop">↑</button>
+
+    <script>
+        // CLOCK
+        function clock() {
+            const d = new Date();
+            let h = d.getHours();
+            let m = d.getMinutes();
+            let s = d.getSeconds();
+            const period = h >= 12 ? "PM" : "AM";
+
+            if (h > 12) h -= 12;
+            if (h === 0) h = 12;
+
+            document.querySelector(".hour").textContent = String(h).padStart(2, "0");
+            document.querySelector(".minute").textContent = String(m).padStart(2, "0");
+            document.querySelector(".second").textContent = String(s).padStart(2, "0");
+            document.querySelector(".period").textContent = period;
+
+            document.querySelector(".day_name").textContent = d.toLocaleString("default", { weekday: "long" });
+            document.querySelector(".month").textContent = d.toLocaleString("default", { month: "long" });
+            document.querySelector(".day_no").textContent = d.getDate();
+
+            setTimeout(clock, 1000);
+        }
+        clock();
+
+        // BACK TO TOP FUNCTION
+        window.addEventListener("scroll", () => {
+            document.getElementById("backToTop").style.display =
+                window.scrollY > 300 ? "block" : "none";
+        });
+
+        document.getElementById("backToTop").onclick = () =>
+            window.scrollTo({ top: 0, behavior: "smooth" });
+    </script>
+
+<footer>
+    <div class="footer-box">
+        <div class="footer-info">
+            <p>
+                🌐 Recommended: Latest Chrome, Firefox, or Edge |
+                🖥️ Resolution: 1280x720 or higher
+            </p>
+            <p class="last-updated">
+                📅 Last Updated: 06 December 2025
+            </p>
+        </div>
+        <p>&copy; 2025 Zaiyani Zarli. Copyright. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

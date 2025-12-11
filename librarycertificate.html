@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Programme Certificate</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #add8e6;
+        margin: 0;
+        padding-top: 270px; /* Space for fixed banner + navbar */
+    }
+
+    /* ===== FIXED BANNER ===== */
+    .image-banner-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 200px;
+        background: #add8e6;
+        z-index: 9998;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .image-banner-container img {
+        height: 100%;
+        width: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* ===== FIXED NAVBAR ===== */
+    header {
+        position: fixed;
+        top: 200px;
+        width: 100%;
+        background: #fff;
+        text-align: center;
+        padding: 15px 0;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        z-index: 9999;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    nav a {
+        text-decoration: none;
+        margin: 0 15px;
+        color: #333;
+        font-size: 15px;
+        padding: 5px 0;
+        display: inline-block;
+        position: relative;
+    }
+    nav a:hover,
+    nav a.active {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    /* Navbar Dropdown */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        min-width: 180px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border-radius: 6px;
+        z-index: 10000;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f0f8ff;
+        color: #007bff;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+        max-width: 900px;
+        margin: 60px auto 40px auto; /* extra top margin to move content below navbar */
+        padding: 0 15px;
+    }
+
+    h2 {
+        margin-bottom: 25px;
+        color: #333;
+    }
+
+    /* ===== TABLE STYLING ===== */
+    table {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    th {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+        padding: 12px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* ===== BACK TO TOP BUTTON ===== */
+    #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #007bff;
+        color: white;
+        padding: 12px 15px;
+        font-size: 18px;
+        border-radius: 50%;
+        border: none;
+        display: none;
+        cursor: pointer;
+        z-index: 9999;
+        transition: background 0.3s;
+    }
+    #backToTop:hover { background: #0056b3; }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background-color: #ffffff;
+        border-top: 1px solid #ccc;
+        text-align: center;
+        font-size: 0.9em;
+        color: #555;
+        margin-top: auto;
+        padding: 20px 15px;
+    }
+    .footer-info {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #eee;
+    }
+    .last-updated {
+        font-style: italic;
+        color: #777;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- FIXED BANNER -->
+<div class="image-banner-container">
+    <img src="resume header.jpg" alt="Header Image">
+</div>
+
+<!-- FIXED NAVBAR -->
+<header>
+    <div class="logo">ZAIYANI ZARLI</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+
+        <!-- Navbar Dropdown for Education -->
+        <div class="dropdown">
+            <a href="education.html">Education</a>
+            <div class="dropdown-content">
+                <a href="secondary.html">Secondary School</a>
+                <a href="matriculation.html">Matriculation</a>
+                <a href="university.html">University</a>
+            </div>
+        </div>
+
+        <a href="skills.html">Skills</a>
+
+        <!-- Navbar Dropdown for Achievement -->
+        <div class="dropdown">
+            <a href="#" class="active">Achievement</a>
+            <div class="dropdown-content">
+                <a href="librarycertificate.html">Library Programme Certificate</a>
+            </div>
+        </div>
+
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <h2>📜 Library Programme Certificate</h2>
+    <hr>
+    <p>Below are the certificates I received for the Library Programme:</p>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Programme</th>
+                    <th>Date</th>
+                    <th>Level</th>
+                    <th>Certificate</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Come and Grab the Knowledge</td>
+                    <td>April 2025</td>
+                    <td>Participation</td>
+                    <td><a href="img/library1.jpg" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                </tr>
+                <tr>
+                    <td>AI Forum</td>
+                    <td>April 2025</td>
+                    <td>Participation</td>
+                    <td><a href="img/library2.jpg" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                </tr>
+                <tr>
+                    <td>Program Pembudayaan Ilmu</td>
+                    <td>June 2025</td>
+                    <td>Participation</td>
+                    <td><a href="img/library3.jpg" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop">↑</button>
+
+<script>
+    // Show/hide Back to Top button
+    const backBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+        backBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    // Scroll to top on click
+    backBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-info">
+        <p>🌐 Recommended: Latest Chrome, Firefox, or Edge | 🖥️ Resolution: 1280x720 or higher</p>
+        <p class="last-updated">📅 Last Updated: 06 Dec 2025</p>
+    </div>
+    <p>&copy; 2025 Zaiyani Zarli. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

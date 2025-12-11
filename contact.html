@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #add8e6;
+    padding-top: 270px; /* space for banner & header */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- FIXED BANNER TOP --- */
+.image-banner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 200px;
+    background: #add8e6;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-banner-container img {
+    height: 100%;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* --- HEADER / NAV BAR --- */
+header {
+    position: fixed;
+    top: 200px;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 9999;
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #333;
+    font-size: 15px;
+}
+nav a:hover, nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Contact Container */
+.contact-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 20px 40px 20px;
+    border-radius: 12px;
+}
+.wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.left-box {
+    background: #005cfb;
+    width: 280px;
+    color: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+.left-box h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.contact-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+.contact-item span {
+    background: #fff;
+    color: #005cfb;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.right-box {
+    flex: 1;
+    background: #f0f1f5;
+    padding: 30px;
+    border-radius: 12px;
+}
+.form-row {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+input, textarea {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #e4e6eb;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+}
+textarea { height: 120px; resize: none; }
+button {
+    background: #005cfb;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+button:hover { background: #0041a8; }
+
+.referees-box {
+    margin-top:30px;
+    padding:20px;
+    border:1px solid #eee;
+    border-radius:10px;
+    background:#f8f8f8;
+}
+.referees-box h3 {
+    color:#005cfb;
+    border-bottom:2px solid #ccc;
+    padding-bottom:10px;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: auto;
+    padding: 20px 15px;
+}
+.footer-info {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+}
+.last-updated { font-style: italic; color: #777; }
+
+/* Back to Top */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #007bff;
+    color: white;
+    padding: 12px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    border: none;
+    display: none;
+    cursor: pointer;
+    z-index: 9999;
+    transition: background 0.3s;
+}
+#backToTop:hover { background: #0056b3; }
+
+/* Thank you popup */
+#thankYouMsg {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #005cfb;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 10000;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+#thankYouMsg.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .wrapper { flex-direction: column; }
+    .left-box { width: 100%; }
+    .form-row { flex-direction: column; }
+}
+@media (max-width: 600px) {
+    nav a { display: inline-block; margin: 8px; }
+    .contact-container { padding: 15px; }
+    .right-box, .left-box { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FIXED BANNER -->
+<div class="image-banner-container">
+    <img src="resume header.jpg" alt="Zaiyani Zarli E-Resume Header">
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">ZAIYANI ZARLI</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="education.html">Education</a>
+        <a href="skills.html">Skills</a>
+        <a href="achievement.html">Achievement</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+</header>
+
+<!-- MAIN CONTACT CONTENT -->
+<div class="contact-container">
+    <div class="wrapper">
+        <div class="left-box">
+            <h2>Get in touch</h2>
+            <p>Share your thoughts with me</p>
+            <div class="contact-item"><span>@</span> zaiyanizarli0409@gmail.com</div>
+            <div class="contact-item"><span>📞</span> 013-8661522</div>
+            <div class="contact-item"><span>📍</span> Kedah</div>
+        </div>
+
+        <div class="right-box">
+            <form id="contactForm" action="https://formsubmit.co/zaiyanizarli0409@gmail.com" method="POST" target="hidden_iframe">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full name</label>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" name="email" placeholder="Email address" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone number</label>
+                        <input type="text" name="phone" placeholder="Your phone number" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" placeholder="Your message here." required></textarea>
+                </div>
+                <button type="submit">Send messages</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="referees-box">
+        <h3>References Available Upon Request</h3>
+        <p>For professional inquiries, please contact the following individuals directly.</p>
+        <div class="referee-detail"><strong>Referee 1:</strong> MAHADI BIN MAHMOOD</div>
+        <div class="referee-detail"><strong>Position:</strong> Lecturer / Advisor</div>
+        <div class="referee-detail"><strong>Contact:</strong> mahadi147@uitm.edu.my</div>
+        <div class="referee-detail"><strong>Phone Number:</strong> 04-456 2605</div>
+    </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop">↑</button>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-info">
+        <p>🌐 Recommended: Latest Chrome, Firefox, or Edge | 🖥️ Resolution: 1280x720 or higher</p>
+        <p class="last-updated">📅 Last Updated: 06 December 2025</p>
+    </div>
+    <p>&copy; 2025 Zaiyani Zarli. All rights reserved.</p>
+</footer>
+
+<!-- Hidden iframe for formsubmit -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<!-- Thank you message popup -->
+<div id="thankYouMsg">Thank you for your message!</div>
+
+<script>
+// Back to Top
+const backBtn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+    backBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+backBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Contact form popup
+const form = document.getElementById('contactForm');
+const thankYouMsg = document.getElementById('thankYouMsg');
+
+form.addEventListener('submit', function(e) {
+    // let form submit to iframe
+    setTimeout(() => {
+        thankYouMsg.classList.add('show');
+        setTimeout(() => { thankYouMsg.classList.remove('show'); }, 3000);
+        form.reset();
+    }, 500);
+});
+</script>
+
+</body>
+</html>

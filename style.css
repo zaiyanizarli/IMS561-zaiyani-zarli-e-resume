@@ -1,0 +1,132 @@
+body {
+  background-color: #e8e8e8;
+  animation: change-background 3s infinite linear;
+}
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: scale(1.5, 1.5) translate(-50%, -50%);
+}
+
+.floor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 350px;
+  height: 5px;
+  background: #673C63;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 5px #111;
+  z-index: 2;
+}
+
+/* WRAPPER – SIDE BY SIDE LAYOUT */
+.main-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* LEFT WHITE CARD */
+.left-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    width: 48%;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Individual Sections */
+.card-section {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+
+.card-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    background-color: #87ceeb;
+    margin: -20px -20px 15px -20px;
+    padding: 12px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Experience layout */
+.experience-row {
+    display: flex;
+    gap: 15px;
+}
+
+.experience-photo {
+    width: 140px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.experience-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Social media list */
+.social-links li {
+    margin: 6px 0;
+}
+
+/* Video */
+.video-player {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* RESUME RIGHT CARD */
+.resume-card {
+    width: 48%;
+    background: #e5f6ff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.resume-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.resume-image {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column;
+    }
+    .left-card,
+    .resume-card {
+        width: 100%;
+    }
+    .experience-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .experience-photo {
+        width: 180px;
+    }
+}
